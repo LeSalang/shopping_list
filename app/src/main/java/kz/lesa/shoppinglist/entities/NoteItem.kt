@@ -11,4 +11,4 @@ data class NoteItem(
     @ColumnInfo (name = "content") val content: String,
     @ColumnInfo (name = "time") val time: String,
     @ColumnInfo (name = "category") val category: String
-)
+) : java.io.Serializable

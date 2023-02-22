@@ -9,7 +9,7 @@ import kz.lesa.shoppinglist.entities.NoteItem
 @Dao
 interface Dao {
     @Query ("SELECT * FROM note_list")
-    fun getAllNotes() : Flow<List<Note>>
+    fun getAllNotes() : Flow<List<NoteItem>>
     @Insert
     suspend fun insertNote (note: NoteItem)
 }
