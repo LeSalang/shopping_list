@@ -10,16 +10,23 @@ import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import kz.lesa.shoppinglist.R
 import kz.lesa.shoppinglist.databinding.NoteListItemBinding
 import kz.lesa.shoppinglist.entities.NoteItem
+import kz.lesa.shoppinglist.utils.HtmlManager
 
-class NoteAdapter : ListAdapter<NoteItem, NoteAdapter.ItemHolder>(ItemComparator()) {
+class NoteAdapter(private val listener: Listener) : ListAdapter<NoteItem, NoteAdapter.ItemHolder>(ItemComparator()) {
 
     class ItemHolder (view: View) : RecyclerView.ViewHolder(view) {
         private val binding = NoteListItemBinding.bind(view)
 
-        fun setData(note: NoteItem) = with(binding) {
+        fun setData(note: NoteItem, listener: Listener) = with(binding) {
             tvTitle.text = note.title
-            tvDescription.text = note.content
+            tvDescription.text = HtmlManager.getFromHtml(note.content).trim()
             tvTime.text = note.time
+            itemView.setOnClickListener {
+                listener.onClickItem(note)
+            }
+            imDelete.setOnClickListener {
+                listener.deleteItem(note.id!!)
+            }
         }
         companion object {
             fun create(parent: ViewGroup): ItemHolder {
@@ -46,6 +53,11 @@ class NoteAdapter : ListAdapter<NoteItem, NoteAdapter.ItemHolder>(ItemComparator
     }
 
     override fun onBindViewHolder(holder: ItemHolder, position: Int) {
-        holder.setData(getItem(position))
+        holder.setData(getItem(position), listener)
+    }
+
+    interface Listener {
+        fun deleteItem(id: Int)
+        fun onClickItem(note: NoteItem)
     }
 }

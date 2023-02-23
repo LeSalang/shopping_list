@@ -7,7 +7,16 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
     <color name="myGreen">#1AA167</color>
     <color name="myBlue">#0090FF</color>
     <color name="myRed">#EC604B</color>
+
+    <color name="picker_red">#FF1100</color>
+    <color name="picker_orange">#DC6000</color>
+    <color name="picker_yellow">#FFC107</color>
+    <color name="picker_green">#07860C</color>
+    <color name="picker_blue">#4057DA</color>
+    <color name="picker_purple">#673AB7</color>
+
 </resources>

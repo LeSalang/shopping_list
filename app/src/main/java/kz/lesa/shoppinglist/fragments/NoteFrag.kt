@@ -20,7 +20,7 @@ import kz.lesa.shoppinglist.db.MainViewModel
 import kz.lesa.shoppinglist.db.NoteAdapter
 import kz.lesa.shoppinglist.entities.NoteItem
 
-class NoteFrag : BaseFrag() {
+class NoteFrag : BaseFrag(), NoteAdapter.Listener {
     private lateinit var binding: FragNoteBinding
     private lateinit var editLauncher: ActivityResultLauncher<Intent>
     private lateinit var adapter: NoteAdapter
@@ -54,7 +54,7 @@ class NoteFrag : BaseFrag() {
 
     private fun initRcView() = with(binding) {
         rcViewNote.layoutManager = LinearLayoutManager(activity)
-        adapter = NoteAdapter()
+        adapter = NoteAdapter(this@NoteFrag)
         rcViewNote.adapter = adapter
     }
 
@@ -67,14 +67,31 @@ class NoteFrag : BaseFrag() {
     private fun onEditResult() {
         editLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
             if(it.resultCode == Activity.RESULT_OK) {
-                mainViewModel.insertNote(it.data?.getSerializableExtra(NEW_NOTE_KEY) as NoteItem)
+                val editState = it.data?.getStringExtra(EDIT_STATE_KEY)
+                if (editState == "update") {
+                    mainViewModel.updateNote(it.data?.getSerializableExtra(NEW_NOTE_KEY) as NoteItem)
+                } else {
+                    mainViewModel.insertNote(it.data?.getSerializableExtra(NEW_NOTE_KEY) as NoteItem)
+                }
             }
         }
     }
 
     companion object {
         const val NEW_NOTE_KEY = "title_key"
+        const val EDIT_STATE_KEY = "edit_state_key"
         @JvmStatic
         fun newInstance() = NoteFrag()
+    }
+
+    override fun deleteItem(id: Int) {
+        mainViewModel.deleteNote(id)
+    }
+
+    override fun onClickItem(note: NoteItem) {
+        val intent = Intent(activity, NewNoteActivity::class.java).apply {
+            putExtra(NEW_NOTE_KEY, note)
+        }
+        editLauncher.launch(intent)
     }
 }
