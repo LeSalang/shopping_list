@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="note_style_array">
+        <item>Linear</item>
+        <item>Grid</item>
+    </string-array>
+    <string-array name="note_style_values">
+        <item>Linear</item>
+        <item>Grid</item>
+    </string-array>
+
+    <string-array name="time_format_array">
+        <item>hh:mm:ss - yyyy/MM/dd</item>
+        <item>hh:mm:ss - dd/MM/yyy</item>
+    </string-array>
+    <string-array name="time_format_values">
+        <item>hh:mm:ss - yyyy/MM/dd</item>
+        <item>hh:mm:ss - dd/MM/yyy</item>
+    </string-array>
+
+    <string-array name="choose_theme_array">
+        <item>Indigo-Red theme</item>
+        <item>Green-Orange theme</item>
+        <item>Purple-Yellow theme</item>
+    </string-array>
+    <string-array name="choose_theme_values">
+        <item>blue</item>
+        <item>green</item>
+        <item>purple</item>
+    </string-array>
+
+    <string-array name="text_size_array">
+        <item>Tiny</item>
+        <item>Small</item>
+        <item>Normal</item>
+        <item>Big</item>
+        <item>Huge</item>
+    </string-array>
+    <string-array name="text_size_values">
+        <item>9</item>
+        <item>12</item>
+        <item>15</item>
+        <item>18</item>
+        <item>21</item>
+    </string-array>
+
+</resources>

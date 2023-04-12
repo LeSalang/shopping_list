@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/myRed"
     tools:context=".activities.NewNoteActivity">
 
     <androidx.cardview.widget.CardView
@@ -14,11 +13,10 @@
         android:layout_marginTop="5dp"
         android:layout_marginEnd="5dp"
         android:layout_marginBottom="5dp"
-        app:cardCornerRadius="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" >
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -30,7 +28,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="@string/ed_title_hint"
+                android:hint="@string/title"
                 android:inputType="textPersonName"
                 android:textSize="20sp"
                 android:textStyle="bold"
@@ -44,13 +42,15 @@
                 android:layout_height="0dp"
                 android:ems="10"
                 android:gravity="top"
-                android:hint="@string/ed_description_hint"
-                android:inputType="textPersonName"
+                android:hint="@string/description"
+                android:inputType="textMultiLine|textPersonName"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/edTitle"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/edTitle"
-                app:layout_constraintTop_toBottomOf="@+id/edTitle" />
+                app:layout_constraintTop_toBottomOf="@+id/edTitle"
+                app:layout_constraintVertical_bias="1.0" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 

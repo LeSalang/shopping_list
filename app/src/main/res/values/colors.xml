@@ -1,16 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="purple_200">#FFBB86FC</color>
-    <color name="purple_500">#FF6200EE</color>
-    <color name="purple_700">#FF3700B3</color>
-    <color name="teal_200">#FF03DAC5</color>
-    <color name="teal_700">#FF018786</color>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <color name="dark_primary_color_green_orange">#193F1B</color>
+    <color name="light_primary_color_green_orange">#C8E6C9</color>
+    <color name="primary_color_green_orange">#37923B</color>
+    <color name="accent_color_green_orange">#FF9800</color>
 
-    <color name="myGreen">#1AA167</color>
-    <color name="myBlue">#0090FF</color>
-    <color name="myRed">#EC604B</color>
+    <color name="dark_primary_color_indigo_red">#303F9F</color>
+    <color name="light_primary_color_indigo_red">#C5CAE9</color>
+    <color name="primary_color_indigo_red">#3F51B5</color>
+    <color name="accent_color_indigo_red">#FF5252</color>
+
+    <color name="dark_primary_color_purple_yellow">#512DA8</color>
+    <color name="light_primary_color_purple_yellow">#D1C4E9</color>
+    <color name="primary_color_purple_yellow">#673AB7</color>
+    <color name="accent_color_purple_yellow">#FFEB3B</color>
+
+    <color name="black">#FF000000</color>
+    <color name="grey">#757575</color>
+    <color name="light_grey">#BDBDBD</color>
+    <color name="white">#FFFFFFFF</color>
 
     <color name="picker_red">#FF1100</color>
     <color name="picker_orange">#DC6000</color>
@@ -18,5 +26,6 @@
     <color name="picker_green">#07860C</color>
     <color name="picker_blue">#4057DA</color>
     <color name="picker_purple">#673AB7</color>
+    <color name="gray">#525252</color>
 
 </resources>

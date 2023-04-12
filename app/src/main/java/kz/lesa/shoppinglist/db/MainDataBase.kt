@@ -6,10 +6,10 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import kz.lesa.shoppinglist.entities.LibraryItem
 import kz.lesa.shoppinglist.entities.NoteItem
-import kz.lesa.shoppinglist.entities.ShoppingListItem
-import kz.lesa.shoppinglist.entities.ShoppingListNames
+import kz.lesa.shoppinglist.entities.ShopListItem
+import kz.lesa.shoppinglist.entities.ShopListNameItem
 
-@Database (entities = [LibraryItem::class, NoteItem::class, ShoppingListItem::class, ShoppingListNames::class], version = 1)
+@Database (entities = [LibraryItem::class, NoteItem::class, ShopListItem::class, ShopListNameItem::class], version = 1)
 abstract class MainDataBase : RoomDatabase() {
     abstract fun getDao() : Dao
 

@@ -25,7 +25,7 @@
 
     <item
         android:id="@+id/new_item"
-        android:title="@string/new_item"
+        android:title="@string/add_item"
         android:icon="@drawable/ic_new_item"
         app:showAsAction="ifRoom"
         />

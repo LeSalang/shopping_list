@@ -2,6 +2,7 @@ package kz.lesa.shoppinglist.fragments
 
 import android.app.Activity
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -11,7 +12,10 @@ import android.view.ViewGroup
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.activityViewModels
+import androidx.preference.PreferenceManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import kz.lesa.shoppinglist.R
 import kz.lesa.shoppinglist.activities.MainApp
 import kz.lesa.shoppinglist.activities.NewNoteActivity
@@ -24,6 +28,7 @@ class NoteFrag : BaseFrag(), NoteAdapter.Listener {
     private lateinit var binding: FragNoteBinding
     private lateinit var editLauncher: ActivityResultLauncher<Intent>
     private lateinit var adapter: NoteAdapter
+    private lateinit var defPref: SharedPreferences
 
     private val mainViewModel: MainViewModel by activityViewModels {
         MainViewModel.MainViewModelFactory((context?.applicationContext as MainApp).database)
@@ -53,9 +58,18 @@ class NoteFrag : BaseFrag(), NoteAdapter.Listener {
     }
 
     private fun initRcView() = with(binding) {
-        rcViewNote.layoutManager = LinearLayoutManager(activity)
-        adapter = NoteAdapter(this@NoteFrag)
+        defPref = PreferenceManager.getDefaultSharedPreferences(requireActivity())
+        rcViewNote.layoutManager = getLayoutManager()
+        adapter = NoteAdapter(this@NoteFrag, defPref)
         rcViewNote.adapter = adapter
+    }
+
+    private fun getLayoutManager(): RecyclerView.LayoutManager {
+        return if (defPref.getString("note_style_key", "Linear") == "Linear") {
+            LinearLayoutManager(activity)
+        } else {
+            StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
+        }
     }
 
     private fun observer() {
